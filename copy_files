@@ -1,0 +1,7 @@
+docker run -d --rm --name dummy -v myvolume:/root alpine tail -f /dev/null
+docker cp /home/mid/BetterData/data/cifar-10 dummy:/root/cifar-10
+docker stop dummy
+
+docker run -d --rm --name dummy -v myvolume:/root alpine tail -f /dev/null
+docker cp /home/mid/BetterData/inference-data dummy:/root/inference-data
+docker stop dummy

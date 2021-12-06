@@ -1,0 +1,12 @@
+FROM nvcr.io/nvidia/pytorch:21.11-py3
+
+RUN pip install fastapi==0.70.0 uvicorn==0.15.0 pydantic==1.8.2
+
+WORKDIR /code
+
+COPY cifar_data.py /code/cifar_data.py 
+COPY main.py /code/main.py
+COPY model.py /code/model.py
+
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
